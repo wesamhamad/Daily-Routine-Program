@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <ctype.h>
+
+void fullName (char r);
+
+int main()
+{
+    char s[7][6] = {
+    {'C', 'M', 'P', 'I', 'A', '\0'},
+    {'I', 'C', 'M', 'A', 'P', '\0'},
+    {'A', 'P', 'C', 'I', 'M', '\0'},
+    {'M', 'I', 'P', 'A', 'C', '\0'},
+    {'P', 'C', 'M', 'P', 'I', '\0'},
+    {'I', 'P', 'C', 'M', 'A', '\0'},
+    {'C', 'M', 'P', 'A', 'I', '\0'}
+    };
+    int day, hour, ans; char res, com;
+
+
+    printf ("%45c*** STUDY TIME *** \n%42cWelcome in your schedule...\n\n%30cuse a number to select day\n", ' ', ' ', ' ');
+    printf ("%30c1 >> Sunday,    2 >> Monday,   3 >> Tuesday \n", ' ');
+    printf ("%30c4 >> Wednesday, 5 >> Thursday, 6 >> Friday\n%30c7 >> Saturday\n",  ' ', ' ');
+
+    do {
+        printf ("\n\nAre you want to inquire about something? \"Y\" or \"N\": "); scanf ("%s", &com);
+        if (toupper(com) != 'Y') break;
+        printf ("\n%20cWhat do you want do? \n", ' ');
+        printf ("%20c1 >> show certain hour \n%20c2 >> show certain day \n:", ' ', ' ');
+        scanf ("%d", &ans);
+
+        if (ans == 1){
+            printf ("Enter a day and hour: ");
+            scanf ("%d%d", &day, &hour);
+            if (day > 7 || hour > 5){
+                printf ("Invalid input, TRY AGAIN.. Day between 1 and 7, Hour between 1 and 5");
+                continue;
+            }
+            res = s[day-1][hour-1];
+            fullName(res);
+
+        } else if (ans == 2){
+                    printf ("Enter a day: ");
+                    scanf ("%d", &day);
+
+            for (int i = 0; i < 5; i++){
+                if (day > 7) {
+                   printf ("Invalid input, TRY AGAIN.. Day between 1 and 7");
+                   break;
+                }
+                res = s[day-1][i];
+                fullName(res); printf ("%5s", " ");
+            }
+        } else printf ("Invalid Choice!! \n");
+    } while (toupper(com) == 'Y');
+    printf ("\n%45cGOOD LUCK <3\n\a",' ');
+    return 0;
+}
+
+void fullName (char r){
+    switch (r) {
+            case 'C': printf ("Computer Program"); break;
+            case 'M': printf ("Math"); break;
+            case 'P': printf ("Physics"); break;
+            case 'I': printf ("Information Technology"); break;
+            case 'A': printf ("Arab"); break;
+        }
+}
