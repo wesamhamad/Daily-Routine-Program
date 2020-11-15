@@ -6,13 +6,13 @@ void fullName (char r);
 int main()
 {
     char s[7][6] = {
-    {'C', 'M', 'P', 'I', 'A', '\0'},
-    {'I', 'C', 'M', 'A', 'P', '\0'},
-    {'A', 'P', 'C', 'I', 'M', '\0'},
-    {'M', 'I', 'P', 'A', 'C', '\0'},
-    {'P', 'C', 'M', 'P', 'I', '\0'},
-    {'I', 'P', 'C', 'M', 'A', '\0'},
-    {'C', 'M', 'P', 'A', 'I', '\0'}
+    {'C', 'M', 'P', 'I', 'A'},
+    {'I', 'C', 'M', 'A', 'P'},
+    {'A', 'P', 'C', 'I', 'M'},
+    {'M', 'I', 'P', 'A', 'C'},
+    {'P', 'C', 'M', 'P', 'I'},
+    {'I', 'P', 'C', 'M', 'A'},
+    {'C', 'M', 'P', 'A', 'I'}
     };
     int day, hour, ans; char res, com;
 
@@ -21,9 +21,11 @@ int main()
     printf ("%30c1 >> Sunday,    2 >> Monday,   3 >> Tuesday \n", ' ');
     printf ("%30c4 >> Wednesday, 5 >> Thursday, 6 >> Friday\n%30c7 >> Saturday\n",  ' ', ' ');
 
+
     do {
         printf ("\n\nAre you want to inquire about something? \"Y\" or \"N\": "); scanf ("%s", &com);
         if (toupper(com) != 'Y') break;
+
         printf ("\n%20cWhat do you want do? \n", ' ');
         printf ("%20c1 >> show certain hour \n%20c2 >> show certain day \n:", ' ', ' ');
         scanf ("%d", &ans);
@@ -36,12 +38,11 @@ int main()
                 continue;
             }
             res = s[day-1][hour-1];
-            fullName(res);
-
+            printf ("\n%10s", " "); fullName(res);
         } else if (ans == 2){
                     printf ("Enter a day: ");
                     scanf ("%d", &day);
-
+                    printf ("\n");
             for (int i = 0; i < 5; i++){
                 if (day > 7) {
                    printf ("Invalid input, TRY AGAIN.. Day between 1 and 7");
@@ -52,6 +53,7 @@ int main()
             }
         } else printf ("Invalid Choice!! \n");
     } while (toupper(com) == 'Y');
+
     printf ("\n%45cGOOD LUCK <3\n\a",' ');
     return 0;
 }
