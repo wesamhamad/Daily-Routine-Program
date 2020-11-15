@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <ctype.h>
 
-void fullName (char r);
+void fullCourse (char r);
+void fullDay(int x);
+void fullHour(int y);
 
 int main()
 {
@@ -15,7 +17,7 @@ int main()
     {'C', 'M', 'P', 'A', 'I'}
     };
     int day, hour, ans; char res, com;
-
+    char search[30];
 
     printf ("%45c*** STUDY TIME *** \n%42cWelcome in your schedule...\n\n%30cuse a number to select day\n", ' ', ' ', ' ');
     printf ("%30c1 >> Sunday,    2 >> Monday,   3 >> Tuesday \n", ' ');
@@ -27,7 +29,7 @@ int main()
         if (toupper(com) != 'Y') break;
 
         printf ("\n%20cWhat do you want do? \n", ' ');
-        printf ("%20c1 >> show certain hour \n%20c2 >> show certain day \n:", ' ', ' ');
+        printf ("%20c1 >> show certain hour \n%20c2 >> show certain day \n%20c3 >> search about times certain subject \n:", ' ', ' ', ' ');
         scanf ("%d", &ans);
 
         if (ans == 1){
@@ -38,7 +40,7 @@ int main()
                 continue;
             }
             res = s[day-1][hour-1];
-            printf ("\n%10s", " "); fullName(res);
+            printf ("\n%10s", " "); fullCourse(res);
         } else if (ans == 2){
                     printf ("Enter a day: ");
                     scanf ("%d", &day);
@@ -49,16 +51,35 @@ int main()
                    break;
                 }
                 res = s[day-1][i];
-                fullName(res); printf ("%5s", " ");
+                fullCourse(res); printf ("%5s", " ");
             }
-        } else printf ("Invalid Choice!! \n");
+        } else if (ans == 3){
+                    printf ("Enter a name of subject: "); scanf ("%s", search);
+                    if ((toupper(search[0]) == 'C') || (toupper(search[0]) == 'M') || (toupper(search[0]) == 'P')
+                         || (toupper(search[0]) == 'I') || (toupper(search[0]) == 'A'))
+                    {
+                        //printf ("This Course not in your s");
+
+                            for (int i = 0; i < 7; i++){
+                                for (int j = 0; j < 5; j++){
+                                    if (toupper(search[0]) == s[i][j]) {
+                                        printf ("You have %s on ", search); fullDay(i+1);
+                                        printf (", On "); fullHour(j+1);
+                                        printf ("\n");
+                                    }
+                                }
+
+                          }
+                    } else printf ("This Course not in your s");
+
+                } else printf ("Invalid Choice!! \n");
     } while (toupper(com) == 'Y');
 
     printf ("\n%45cGOOD LUCK <3\n\a",' ');
     return 0;
 }
 
-void fullName (char r){
+void fullCourse (char r){
     switch (r) {
             case 'C': printf ("Computer Program"); break;
             case 'M': printf ("Math"); break;
@@ -66,4 +87,28 @@ void fullName (char r){
             case 'I': printf ("Information Technology"); break;
             case 'A': printf ("Arab"); break;
         }
+}
+
+void fullDay(int x) {
+    switch (x) {
+    case 1: printf ("Sunday"); break;
+    case 2: printf ("Monday"); break;
+    case 3: printf ("Tuesday"); break;
+    case 4: printf ("Wednesday"); break;
+    case 5: printf ("Thursday"); break;
+    case 6: printf ("Friday"); break;
+    case 7: printf ("Saturday"); break;
+
+    }
+}
+
+void fullHour(int y) {
+
+    switch (y) {
+        case 1: printf ("First Hour"); break; break;
+        case 2: printf ("Second Hour"); break;
+        case 3: printf ("3rd Hour"); break;
+        case 4: printf ("4th Hour"); break;
+        case 5: printf ("5th Hour"); break;
+    }
 }
