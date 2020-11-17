@@ -19,9 +19,10 @@ int main()
     int day, hour, ans; char res, com;
     char search[30];
 
-    printf ("%45c*** STUDY TIME *** \n%42cWelcome in your schedule...\n\n%30cuse a number to select day\n", ' ', ' ', ' ');
-    printf ("%30c1 >> Sunday,    2 >> Monday,   3 >> Tuesday \n", ' ');
-    printf ("%30c4 >> Wednesday, 5 >> Thursday, 6 >> Friday\n%30c7 >> Saturday\n",  ' ', ' ');
+    printf ("%45c*** STUDY TIME *** \n%42cWelcome in your schedule..."
+            "\n\n%30cuse a number to select day\n", ' ', ' ', ' ');
+    printf ("%30c1 >> Sunday,    2 >> Monday,   3 >> Tuesday \n"
+            "%30c4 >> Wednesday, 5 >> Thursday, 6 >> Friday\n%30c7 >> Saturday\n",  ' ', ' ', ' ');
 
 
     do {
@@ -29,12 +30,12 @@ int main()
         if (toupper(com) != 'Y') break;
 
         printf ("\n%20cWhat do you want do? \n", ' ');
-        printf ("%20c1 >> show certain hour \n%20c2 >> show certain day \n%20c3 >> search about times certain subject \n:", ' ', ' ', ' ');
+        printf ("%20c1 >> show certain hour \n%20c2 >> show certain day"
+                "\n%20c3 >> search about times certain subject \n:", ' ', ' ', ' ');
         scanf ("%d", &ans);
 
         if (ans == 1){
-            printf ("Enter a day and hour: ");
-            scanf ("%d%d", &day, &hour);
+            printf ("Enter a day and hour: "); scanf ("%d%d", &day, &hour);
             if (day > 7 || hour > 5){
                 printf ("Invalid input, TRY AGAIN.. Day between 1 and 7, Hour between 1 and 5");
                 continue;
@@ -42,9 +43,7 @@ int main()
             res = s[day-1][hour-1];
             printf ("\n%10s", " "); fullCourse(res);
         } else if (ans == 2){
-                    printf ("Enter a day: ");
-                    scanf ("%d", &day);
-                    printf ("\n");
+                    printf ("Enter a day: "); scanf ("%d", &day); printf ("\n");
             for (int i = 0; i < 5; i++){
                 if (day > 7) {
                    printf ("Invalid input, TRY AGAIN.. Day between 1 and 7");
@@ -55,22 +54,15 @@ int main()
             }
         } else if (ans == 3){
                     printf ("Enter a name of subject: "); scanf ("%s", search);
-                    if ((toupper(search[0]) == 'C') || (toupper(search[0]) == 'M') || (toupper(search[0]) == 'P')
-                         || (toupper(search[0]) == 'I') || (toupper(search[0]) == 'A'))
-                    {
-                        //printf ("This Course not in your s");
-
-                            for (int i = 0; i < 7; i++){
-                                for (int j = 0; j < 5; j++){
-                                    if (toupper(search[0]) == s[i][j]) {
-                                        printf ("You have %s on ", search); fullDay(i+1);
-                                        printf (", On "); fullHour(j+1);
-                                        printf ("\n");
-                                    }
+                          for (int i = 0; i < 7; i++){
+                            for (int j = 0; j < 5; j++){
+                                if (toupper(search[0]) == s[i][j]) {
+                                    printf ("You have %s on ", search); fullDay(i+1);
+                                    printf (", At "); fullHour(j+1); printf ("\n");
                                 }
+                            }
 
-                          }
-                    } else printf ("This Course not in your s");
+                        }
 
                 } else printf ("Invalid Choice!! \n");
     } while (toupper(com) == 'Y');
