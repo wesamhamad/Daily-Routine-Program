@@ -55,14 +55,14 @@ int main()
                         printf ("%s%5s", fullCourse(s[day-1][i]), " ");
                     }
         } else if (ans == 3){ // search by subject name:
-                    printf ("Enter a name of subject: "); gets(search); gets(search);
+                    printf ("Enter a name of subject: "); gets(search); gets(search); int c = 0;
                         for (int i = 0; i < 7; i++){
                             for (int j = 0; j < 5; j++){
                                  if (strncasecmp(search, fullCourse(s[i][j]), 8) == 0) {
                                      printf ("You have %s on %s, At %s \n", fullCourse(s[i][j]), fullDay(i+1), fullHour(j+1));
-                                }
+                                } else c++;
                             }
-                        }
+                        } if (c == 35) printf ("This course not in your schedule");
 
                 } else printf ("Invalid Choice!! \n");
     } while (toupper(com) == 'Y');
