@@ -17,7 +17,7 @@ int main()
     {'I', 'P', 'C', 'M', 'A'},
     {'C', 'M', 'P', 'A', 'I'}
     };
-    int day, hour, ans; char com;
+    int day, hour, ans; char com = 'Y';
     char search[25];
 
     printf ("%45c*** STUDY TIME *** \n%42cWelcome in your schedule..."
@@ -28,14 +28,16 @@ int main()
 
     do {
         printf ("\n\nAre you want to inquire about something? \"Y\" or \"N\": "); scanf ("%s", &com);
-        if (toupper(com) != 'Y') break;
+        while ((toupper(com) != 'Y') && (toupper(com) != 'N'))
+            {printf("Please Enter \"Y\" or \"N\": "); scanf ("%s", &com);}
+        if (toupper(com) == 'N') break;
 
         printf ("\n%20cWhat do you want do? \n", ' ');
         printf ("%20c1 >> show certain hour \n%20c2 >> show certain day"
-                "\n%20c3 >> search about times certain subject \n:", ' ', ' ', ' ');
+                "\n%20c3 >> search about times certain subject \n:", ' ', ' ', ' '); // List of choices
         scanf ("%d", &ans);
 
-        if (ans == 1){
+        if (ans == 1){ // Select certain hour:
             printf ("Enter a day and hour: "); scanf ("%d%d", &day, &hour);
             if (day > 7 || hour > 5){
                 printf ("Invalid input, TRY AGAIN.. Day between 1 and 7, Hour between 1 and 5");
@@ -43,7 +45,7 @@ int main()
             }
             printf ("\nYou should study: %s", fullCourse(s[day-1][hour-1]));
 
-        } else if (ans == 2){
+        } else if (ans == 2){ // Select certain day:
                     printf ("Enter a day: "); scanf ("%d", &day); printf ("\n");
                     for (int i = 0; i < 5; i++){
                         if (day > 7) {
@@ -52,7 +54,7 @@ int main()
                         }
                         printf ("%s%5s", fullCourse(s[day-1][i]), " ");
                     }
-        } else if (ans == 3){
+        } else if (ans == 3){ // search by subject name:
                     printf ("Enter a name of subject: "); gets(search); gets(search);
                         for (int i = 0; i < 7; i++){
                             for (int j = 0; j < 5; j++){
@@ -69,7 +71,7 @@ int main()
     return 0;
 }
 
-char *fullCourse (char r){
+char *fullCourse (char r){ // Display full name of course:
     char *res[1];
     switch (r) {
             case 'C': res[0] = "Computer Program"; break;
@@ -81,7 +83,7 @@ char *fullCourse (char r){
         } return *res;
 }
 
-char *fullDay(int x) {
+char *fullDay(int x) { // Display full name of day:
     char *res[1];
     switch (x) {
     case 1: res[0] = "Sunday"; break;
@@ -94,7 +96,7 @@ char *fullDay(int x) {
     } return *res;
 }
 
-char *fullHour(int y) {
+char *fullHour(int y) { // Display hour with letter:
     char *res[1];
     switch (y) {
         case 1: res[0] = "First Hour"; break; break;
