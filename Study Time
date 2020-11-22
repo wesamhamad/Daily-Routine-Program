@@ -79,8 +79,7 @@ char *fullCourse (char r){ // Display full name of course:
             case 'P': res[0] = "Physics"; break;
             case 'I': res[0] = "Information Technology"; break;
             case 'A': res[0] = "Arab"; break;
-            default: res[0] = "This course not in your schedule";
-        } return *res;
+    } return *res;
 }
 
 char *fullDay(int x) { // Display full name of day:
