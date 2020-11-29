@@ -54,8 +54,10 @@ int main()
                         }
                         printf ("%s%5s", fullCourse(s[day-1][i]), " ");
                     }
-        } else if (ans == 3){ // search by subject name:
-                    printf ("Enter a name of subject: "); gets(search); gets(search); int c = 0;
+        }else if (ans == 3){ // search by subject name:
+                    printf ("Enter a name of subject: "); 
+                    gets(search); gets(search); // This is a problem on IED, we can't fix it.
+                    int c = 0;
                         for (int i = 0; i < 7; i++){
                             for (int j = 0; j < 5; j++){
                                  if (strncasecmp(search, fullCourse(s[i][j]), 8) == 0) {
