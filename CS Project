@@ -6,7 +6,7 @@
 
 #define SIZE 20
 int z = 0;
-
+/*____________________Reminder starts here____________________________*/
 char *fullCourse(char r);
 char *fullDay(int x);
 char *fullHour(int y);
