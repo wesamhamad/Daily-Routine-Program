@@ -109,6 +109,7 @@ void reminder(int hour){
 }
     
 int main(){
+    system("COLOR F0 ");
     for (int i=59; i>0; i--) {
         count[i]=i;
     }
