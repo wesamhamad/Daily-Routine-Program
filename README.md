@@ -36,5 +36,5 @@ https://user-images.githubusercontent.com/74800962/126848684-3ebee785-b3c9-43a1-
 
 
    
-   #### You can see the [paper](https://drive.google.com/file/d/1byijDxjfOPzIRyQ_CL6Pqnbm2kAc5ksp/view?usp=sharing) of project which contain more details.
+   #### You can see the [paper](https://github.com/wesamhamad/CS/blob/main/Project_Paper.pdf) of project which contain more details. Also, you can [download](https://drive.google.com/u/0/uc?id=1byijDxjfOPzIRyQ_CL6Pqnbm2kAc5ksp&export=download) it.
    
