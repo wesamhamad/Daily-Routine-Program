@@ -26,6 +26,15 @@ the following sentence: “Congratulations! The first / second player is the win
    
    ## Output Samples 
    
+* ### OutPut1
+https://user-images.githubusercontent.com/74800962/126849103-621b2e2c-d6e5-41fd-85af-4e171a2d2a35.mov
+
+
+
+* ### OutPut2
+https://user-images.githubusercontent.com/74800962/126848684-3ebee785-b3c9-43a1-a870-9f8d5ecb8af2.mov
+
+
    
    #### You can see the [paper](https://drive.google.com/file/d/1byijDxjfOPzIRyQ_CL6Pqnbm2kAc5ksp/view?usp=sharing) of project which contain more details.
    
