@@ -2,7 +2,7 @@
 A project for CS181 course, presented to Dr. Abeer Alhujaylan, the software development process of a Daily Routine Program .
 
 ## Project idea
-The projectis based on team work, each group consists of 4 students each student will program a part then integrated it  as one program, parts of project :
+The projectis based on team work, each group consists of 4 students each student will program a part then we integrated it  as one program, parts of project are :
 
 1.Study Time:
    * Design a schedule that helps you to study for five hours a day. Each day you will study five courses, starting from Sunday till Saturday. Also, the code answer you’re inquiries about the course that will be studied according to the specific day and time in each time you want to know. 
@@ -12,7 +12,7 @@ The projectis based on team work, each group consists of 4 students each student
    
 3.Play time: 
    * After you finished your study and your daily exercise, you deserve some fun before you go to bed. Let's play the game: "Whoever reaches 20 first is a winner!" The rules of the game are as follows: 
-o Thecomputerrandomlydetermineswhostartsplayingfirst. o The computer randomly determines whether you are allowed to use one or two 
+o The computer randomly determines who starts playing first. o The computer randomly determines whether you are allowed to use one or two 
 numbers.
        * The player who reaches the number 20 is the winner and is congratulated by typing 
 the following sentence: “Congratulations! The first / second player is the winner!” 
