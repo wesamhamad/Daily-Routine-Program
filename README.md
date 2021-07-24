@@ -12,12 +12,10 @@ The projectis based on team work, each group consists of 4 students each student
    
 3.Play time: 
    * After you finished your study and your daily exercise, you deserve some fun before you go to bed. Let's play the game: "Whoever reaches 20 first is a winner!" The rules of the game are as follows: 
-o The computer randomly determines who starts playing first. o The computer randomly determines whether you are allowed to use one or two 
+       * The computer randomly determines who starts playing first. o The computer randomly determines whether you are allowed to use one or two 
 numbers.
        * The player who reaches the number 20 is the winner and is congratulated by typing 
-the following sentence: “Congratulations! The first / second player is the winner!” 
-
-       * As long as you are a programming genius, write a program in C language that simulates the previous game. 
+the following sentence: “Congratulations! The first / second player is the winner!”   
        
 4.Creative time **(Which I programed)**:
 
