@@ -4,20 +4,89 @@ A project for CS181 course, presented to Dr. Abeer Alhujaylan, the software deve
 ## Project idea
 The projectis based on team work, each group consists of 4 students each student will program a part then we integrated it  as one program, parts of project are :
 
-1.Study Time:
-   * Design a schedule that helps you to study for five hours a day. Each day you will study five courses, starting from Sunday till Saturday. Also, the code answer you’re inquiries about the course that will be studied according to the specific day and time in each time you want to know. 
+### 1.Study Time:
+   * Design a schedule that helps you to study for five hours a day. 
 
-2.Sport time: 
-   * Design a program that helps you finish daily user-defined steps. If you finish your daily steps, the program will print: “Wow, you did a great job!”. If you have not finished your steps, the program will print: “Ooops, you have not finished your daily steps! try tomorrow”. 
+I use 2D array to store each course name in order to answer user queryes .
+
+```c
+ char s[7][6] = {
+        {'C', 'M', 'P', 'I', 'A'},
+        {'I', 'C', 'M', 'A', 'P'},
+        {'A', 'P', 'C', 'I', 'M'},
+        {'M', 'I', 'P', 'A', 'C'},
+        {'P', 'C', 'M', 'P', 'I'},
+        {'I', 'P', 'C', 'M', 'A'},
+        {'C', 'M', 'P', 'A', 'I'}
+    };
+```
+
+### 2.Sport time: 
+   * A program that’s count your steps in your day,I implement this idea with a help of recursive function .
+
+```c
+int secondPart(int z,int steps,int* goal) {
+    int i=1;
+
+    printf("Your steps now = %d\n",z);
+    printf("\t\t\tWe will ask you every 1 hour about your progress starting from 7pm till 9pm, KEEP IT UP!\n");
+    while (z < *goal) {
+        printf("\t\t\t\t\t-- After %d hours --\n\t\t\thow many steps did you walk in the last  hours?", i);scanf("%10d",&steps);
+        z+=steps;
+        printf("Your steps now = %d\n",z);
+        if(z>*goal){
+            printf("Bravo! you hit the goal\n");
+            break;
+        }
+        ++i;
+        if(i==4) break;
+    }
+    if(z==*goal|| z>*goal )
+        printf("\n\t\t\twow you are doing great\n");
+    else if(z<*goal) {
+        printf("\n\t\t\tyou did not reach you steps goal, try again tommowor\n");
+        printf("\n\t\t\ttotal of your today's steps: %d \n",/**goal*/z);
+    }
+    return 0;
+}
+```
+### 3.Play time: 
+   * After you finished your study and your daily exercise,Let's play the game: "Whoever reaches 20 first is a winner!"
    
-3.Play time: 
-   * After you finished your study and your daily exercise, you deserve some fun before you go to bed. Let's play the game: "Whoever reaches 20 first is a winner!" The rules of the game are as follows: 
-       * The computer randomly determines who starts playing first. o The computer randomly determines whether you are allowed to use one or two 
+  ### The rules of the game are as follows: 
+  * The computer randomly determines who starts playing first. o The computer randomly determines whether you are allowed to use one or two 
 numbers.
-       * The player who reaches the number 20 is the winner and is congratulated by typing 
-the following sentence: “Congratulations! The first / second player is the winner!”   
-       
-4.Creative time 
+  * The player who reaches the number 20 is the winner .  
+      ``
+      The winner and is congratulated by typing “Congratulations! The first / second player is the winner!” then the game end.
+      ``
+      
+      The game implemented by help of srand function which will generate numbers base on you current time & nested loop to decide the conditions of the game  :
+      ```c
+      srand(time(NULL));
+      ```
+      
+      ```c
+      for(i=0;i<SIZE;i++){
+                computer=1+rand()%2;
+                if(i==19)
+                    computer=1;
+                printf("\n\t\t*Computer's decision:%d\n",computer);
+                if((computer==1)&&(player==1)){
+                    printf("%18c",' ');
+                    printf("-First Player: "); scanf("%d",&n1);
+                    if(n1==n[i]){
+                        player=2;
+                        continue;
+                    }
+                    else{
+                        printf("%79s","GAMEOVER, you should play the game in sequence to win!\a\n");
+                        flag=2;
+                        break;
+                    }
+                }
+      ```
+### 4.Creative time ( which my part of programming  )
 
    * I think of an idea for a program which is reminder and to do list that’s help us to plan our day and at the end we check what we have finished .
 
